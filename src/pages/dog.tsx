@@ -43,7 +43,7 @@ const Dog: FC = () => {
   const [dog1,dog2,dog3,dog4,dog5,dog6,dog7,dog8,dog9,dog10,specialdog] = data.allFile.edges.map(edge => edge.node.childImageSharp.fluid);
 
   const [input, setInput] = useState<string>(''); 
-  const [object, setObject] = useState<PictureProps>({multiple: false, dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG].node.childImageSharp.fluid});
+  const [object, setObject] = useState<PictureProps>({multiple: false, dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG || 9].node.childImageSharp.fluid});
 
   console.log(process.env.GATSBY_STATIC_DOG)
   const isPrime = (num: number) => {
@@ -54,12 +54,25 @@ const Dog: FC = () => {
 
   const randomElement = <T, >(array: T[]) => array[Math.floor(Math.random() * array.length)];
 
+  const dec2bin = (dec: number) => {
+    return (dec >>> 0).toString(2);
+  }
+  const check = (string: string) => {
+    if (string.length >= 4) {
+      return string.match(/^[1]+$/g) !== null
+    }
+    return false;
+  }
 
   const Determine = (number: number) => {
     switch (true) {
+      case check(dec2bin(number)):
+          console.log("a");
+          setObject({multiple: false, dog: specialdog})
+        break;
+
       case number < 0:
         console.log("under 0")
-        console.log()
         setObject({multiple: false, dog: dog1})
         break;
 
@@ -80,7 +93,7 @@ const Dog: FC = () => {
     
       default:
         console.log("default")
-        setObject({multiple: false, dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG].node.childImageSharp.fluid})
+        setObject({multiple: false, dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG || 9].node.childImageSharp.fluid})
         
         break;
     }

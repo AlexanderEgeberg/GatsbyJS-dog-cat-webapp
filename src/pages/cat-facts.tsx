@@ -4,6 +4,8 @@ import Layout from "../components/layout"
 import Seo from "../components/seo"
 import axios from 'axios';
 import useFetch from "../Hooks/useFetch";
+import styled from 'styled-components'
+import { Box, BoxWrapper, Button, ButtonWrapper } from "./styles/cat-facts";
 
 interface CatFact {
   fact: string,
@@ -11,7 +13,7 @@ interface CatFact {
 }
 
 const CatFacts: FC = () => {
-
+  
   const fetch = async (): Promise<CatFact> => {
     try {
       const result = await axios.request({
@@ -26,32 +28,27 @@ const CatFacts: FC = () => {
   }
 
   const {
-		state: data,
-		handle: refresh,
+		data,
+		refresh,
 		error: _error,
 		loading
 	} = useFetch(fetch);
 
-
-  const test = () => {
-    console.log(data);
-    refresh();
-  }
-
   return (
     <Layout>
-        
-      <Seo title="Using TypeScript" />
-
-      {data && 
-        loading
-        ? <p>loading</p>
-        : <p>{data.fact}</p>
-      }
-  
-      <Link to="/">Go back to the homepage</Link>
-      <br />
-      <button onClick={() => test()}>hey</button>
+      <Seo title="Cat Facts" />
+      <BoxWrapper>
+        <Box>
+          {data && 
+            loading
+            ? <p>loading</p>
+            : <h2>{data?.fact}</h2>
+          }
+        </Box>
+        <ButtonWrapper>
+          <Button onClick={refresh}>MORE CAT FACTS</Button>
+        </ButtonWrapper>
+      </BoxWrapper>
     </Layout>
   )
 }

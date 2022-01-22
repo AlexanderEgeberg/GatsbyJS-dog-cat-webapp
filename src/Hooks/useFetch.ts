@@ -5,24 +5,24 @@ import {
 } from 'react';
 
 const useFetch = <T,>(fetchData: () => Promise<T>, dependencies = []): {
-	state?: T,
-	handle: () => void,
+	data?: T,
+	refresh: () => void,
 	error?: unknown,
 	loading: boolean,
 } => {
-	const [state, setState] = useState<T>();
+	const [data, setData] = useState<T>();
 	const [error, setError] = useState<unknown | null>(null);
 	const [loading, setLoading] = useState<boolean>(true);
 
 	// eslint-disable-next-line react-hooks/exhaustive-deps
 	const getData = useCallback(fetchData, dependencies);
 
-	const handle = useCallback(async () => {
+	const refresh = useCallback(async () => {
 		setLoading(true);
 
 		try {
 			const result = await getData();
-			setState(result);
+			setData(result);
 		} catch (e) {
 			setError(e);
 		} finally {
@@ -35,12 +35,12 @@ const useFetch = <T,>(fetchData: () => Promise<T>, dependencies = []): {
 	}, [getData]);
 
 	useEffect(() => {
-		handle();
-	}, [handle]);
+		refresh();
+	}, [refresh]);
 
 	return {
-		state,
-		handle,
+		data,
+		refresh,
 		error,
 		loading
 	};
