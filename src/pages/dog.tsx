@@ -43,9 +43,9 @@ const Dog: FC = () => {
   const [dog1,dog2,dog3,dog4,dog5,dog6,dog7,dog8,dog9,dog10,specialdog] = data.allFile.edges.map(edge => edge.node.childImageSharp.fluid);
 
   const [input, setInput] = useState<string>(''); 
-  const [object, setObject] = useState<PictureProps>({multiple: false, dog: dog2});
+  const [object, setObject] = useState<PictureProps>({multiple: false, dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG].node.childImageSharp.fluid});
 
-
+  console.log(process.env.GATSBY_STATIC_DOG)
   const isPrime = (num: number) => {
     for(let i = 2, s = Math.sqrt(num); i <= s; i++)
         if(num % i === 0) return false; 
@@ -80,6 +80,8 @@ const Dog: FC = () => {
     
       default:
         console.log("default")
+        setObject({multiple: false, dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG].node.childImageSharp.fluid})
+        
         break;
     }
   }
