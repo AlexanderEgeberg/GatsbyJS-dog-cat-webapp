@@ -30,5 +30,4 @@ const Header = ({ siteTitle }) => (
   </header>
 )
 
-
 export default Header
