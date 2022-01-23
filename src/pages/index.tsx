@@ -19,6 +19,7 @@ const IndexPage = () => {
           Welcome to my site with cool facts about cats and pictures of dogs.{" "}
           {<br />} Click the respective link to view either page.
         </p>
+        <p><a href="https://github.com/AlexanderEgeberg/bodil_energi_opgave">Github Repo</a></p>
         <p>
           <Link to="/cat-facts/">Go to cat facts</Link> <br />
           <Link to="/dog/">Go to dogs page</Link> <br />
