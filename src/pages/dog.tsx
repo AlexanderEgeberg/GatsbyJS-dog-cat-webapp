@@ -1,11 +1,9 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql, useStaticQuery } from "gatsby"
 import React, { FC, useState } from "react"
 import Layout from "../components/layout"
 import Picture from "../components/picture"
 import Seo from "../components/seo"
-import Img from "gatsby-image"
-import { Container } from "./styles/dog"
+import { Container } from "../components/styles/dog"
 import { dec2bin, isPrime, randomElement } from "../utils"
 import styled from "styled-components"
 
