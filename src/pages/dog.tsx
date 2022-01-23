@@ -116,14 +116,9 @@ const Dog: FC = () => {
     }
   }
 
-  const H2 = styled.h2`
-  text-align: center;
-  `
-
   return (
     <Layout>
       <Seo title="Dog pictures" />
-      <H2>Hello World, This Is Dog</H2>
       <Container>
         <Picture {...pictureProps} />
       </Container>
