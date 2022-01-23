@@ -6,11 +6,7 @@ import { AiOutlineHome } from "react-icons/ai"
 
 const Layout = ({ children }) => {
   const Footer = styled.footer`
-    width: 600px;
-    position: fixed;
     bottom: 0;
-    left: 50%;
-    margin-left: -300px;
     text-align: center;
     margin-bottom: 10px;
   `

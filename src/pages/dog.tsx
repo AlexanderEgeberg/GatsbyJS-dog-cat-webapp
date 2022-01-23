@@ -61,8 +61,7 @@ const Dog: FC = () => {
   const [input, setInput] = useState<string>("")
   const [pictureProps, setPictureProps] = useState<PictureProps>({
     multiple: false,
-    dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG || 9].node
-      .childImageSharp.fluid,
+    dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG || 9].node.childImageSharp.fluid,
   })
 
   const check = (string: string) => {
@@ -101,8 +100,7 @@ const Dog: FC = () => {
       default:
         setPictureProps({
           multiple: false,
-          dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG || 9].node
-            .childImageSharp.fluid,
+          dog: data.allFile.edges[process.env.GATSBY_STATIC_DOG || 9].node.childImageSharp.fluid,
         })
 
         break
@@ -118,14 +116,14 @@ const Dog: FC = () => {
     }
   }
 
-  const Test = styled.div`
-    bottom: 0px; ;
+  const H2 = styled.h2`
+  text-align: center;
   `
 
   return (
     <Layout>
-      <Seo title="Using TypeScript" />
-      <br />
+      <Seo title="Dog pictures" />
+      <H2>Hello World, This Is Dog</H2>
       <Container>
         <Picture {...pictureProps} />
       </Container>
