@@ -5,7 +5,7 @@ import Seo from "../components/seo"
 import axios from "axios"
 import useFetch from "../Hooks/useFetch"
 import styled from "styled-components"
-import { Box, BoxWrapper, Button, ButtonWrapper } from "../components/styles/cat-facts"
+import { Box, BoxWrapper, Button, ButtonWrapper } from "../styles/cat-facts"
 
 interface CatFact {
   fact: string

@@ -3,7 +3,7 @@ import React, { FC, useState } from "react"
 import Layout from "../components/layout"
 import Picture from "../components/picture"
 import Seo from "../components/seo"
-import { Container } from "../components/styles/dog"
+import { Container } from "../styles/dog"
 import { dec2bin, isPrime, randomElement } from "../utils"
 import styled from "styled-components"
 
