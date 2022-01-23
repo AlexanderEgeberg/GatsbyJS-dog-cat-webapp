@@ -24,7 +24,7 @@ type fluid = {
 const Dog: FC = () => {
   //In future: Find a way to query and sort by file name,
   //For now get by last modified.
-  const data = useStaticQuery<GatsbyTypes.AssetsPhotosQuery>(graphql`
+  const data = useStaticQuery(graphql`
     query AssetsPhotos {
       allFile(
         sort: { fields: modifiedTime, order: ASC }
